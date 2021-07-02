@@ -11,6 +11,7 @@ function backup
 
     if not test -e .backup-list
         echo ERROR: no backup list file! Create ~/.backup-list to continue
+        cd - > /dev/null
         return 1
     end
 
@@ -28,6 +29,7 @@ function backup
         echo "    -l<location>          Base location, replaces $location"
         echo "    --location=<location>"
         echo "    -h --help             Displays this help, very helpful"
+        cd - > /dev/null
         return 0
     end
 
@@ -39,6 +41,7 @@ function backup
     # test location is a directory and available
     if not test -d $location
         echo ERROR: $location is not a valid directory
+        cd - > /dev/null
         return 1
     end
 
